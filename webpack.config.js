@@ -2,7 +2,8 @@ const path = require('path');
 
 //webpack.config.js
 module.exports = {
-    entry: '.src/index.js',
+    mode: 'development',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'app.bundle.js'
@@ -10,6 +11,7 @@ module.exports = {
     module: {
         rules: [{
                 test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
                 loader: "babel-loader"
             },
             {
